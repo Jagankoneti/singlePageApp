@@ -119,3 +119,80 @@ for (let i = 0; i < colClass.length; i++) {
     colClass[i].style.color = "pink";
 }
 // $(".jumbotron").css("color", "red");
+
+var arr= [1,2,3];
+var mul=arr.reduce((total,cur)=>total+cur);
+console.log(mul);
+
+var obj= {
+    name:'jagan',
+    age:27,
+    consoleFun: function(){
+        console.log("my name is:"+this.name);
+    }
+};
+// var shallow= Object.assign({},obj);
+// console.log(shallow);
+
+// var deepCopy= structuredClone(obj);
+var deepCopy= JSON.parse(JSON.stringify(obj));
+console.log(deepCopy);
+
+let nameObj={
+    name:"john",
+    age:27
+}
+let calFun= function(place){
+    console.log(this.name+' age is '+this.age +" from "+place);
+}
+// calFun.call(nameObj, 'Srikakulam');
+
+let nameObj1={
+    name:"john1",
+    age:28
+}
+// calFun.call(nameObj1, 'Tekkali')
+// calFun.apply(nameObj1, ['Tekkali'])
+let bindFun=calFun.bind(nameObj1, 'Tekkali')
+bindFun();
+
+let append_div_ele= document.createElement(`div`);
+const textnode_ele = document.createTextNode("Water");
+append_div_ele.appendChild(textnode_ele)
+let append_div= document.getElementById("append_div");
+append_div.appendChild(append_div_ele);
+
+const node = document.createElement("li");
+const textnode = document.createTextNode("Water");
+node.appendChild(textnode);
+document.getElementById("append_div").appendChild(node);
+
+
+// function currying is whay that after a returning a function higher funcion argument value is availabale in lower function
+
+let multi= function(a){
+    return function(b){
+        console.log(a*b);
+    }
+}
+
+let multiByTwo=multi(2);
+multiByTwo(3);
+
+function getData(){
+    let val=document.getElementById("search").value;
+    console.log(val)
+}
+//debouncing we mainly see in search bars like 
+// when anything enters in search instead of making multiple api calls based on 
+// certine time we can make a api call
+function doSomething(fn,d){
+    let timer;
+    return function (){
+        clearTimeout(timer);
+        timer=setTimeout(fn,d);
+    }
+}
+const getSuggestion=doSomething(getData,1000);
+
+// “Debouncing is useful when only the final action matters, while throttling is useful when intermediate actions are also important but need to be rate-limited.”
