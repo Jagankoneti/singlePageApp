@@ -195,4 +195,5 @@ function doSomething(fn,d){
 }
 const getSuggestion=doSomething(getData,1000);
 //hii
+//hello
 // “Debouncing is useful when only the final action matters, while throttling is useful when intermediate actions are also important but need to be rate-limited.”
