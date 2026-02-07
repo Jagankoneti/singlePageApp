@@ -197,3 +197,104 @@ const getSuggestion=doSomething(getData,1000);
 //hii
 //hello
 // “Debouncing is useful when only the final action matters, while throttling is useful when intermediate actions are also important but need to be rate-limited.”
+
+class person{
+    talk(){
+        return 'talking';
+    }
+}
+
+// const me= new person();
+// const you =new person();
+
+// console.log(me.talk());
+// console.log(you.talk());
+
+function orderPizza(){
+    setTimeout(()=>{
+        console.log('pizza is ready');
+        eatPizza()
+    },2000)
+}
+function eatPizza(){
+    console.log('eat the pizza');
+}
+orderPizza();
+
+let val =30;
+val=40;
+console.log(val);
+
+let values={
+    name:"jagan",
+    age:26
+}
+values.name="bharath";
+console.log(values);
+
+//var is a function scoped
+//let is block scoped
+
+for(i=0;i<5;i++){
+    // console.log(i);
+}
+
+var i=0;
+while(i<5){
+    i++;
+    // console.log(i);
+}
+
+let arrr=[1,2,3,4];
+// for(let a of arrr){
+//     console.log(a);
+// }
+// for(let a in arrr){
+//     console.log(arrr[a]);
+// }
+arrr.forEach((a)=>{
+// console.log(a);
+})
+
+const promise= new Promise((res,rej)=>{
+    
+    setTimeout(() => {
+        let a =false;
+        if(a){
+            return res('success');
+        }else{
+            return rej('falied');
+        }
+    }, 1000);
+    
+})
+promise.then((res)=>console.log(res))
+        .catch((err)=>console.log(err));
+
+add();
+function add(){
+    let a=1;
+    console.log(a);
+}
+$(window).scroll(function () {
+
+    if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+        console.log("scroll top:"+ $(window).scrollTop());
+        console.log("window heigh:"+ $(window).height());
+        console.log("document height:"+ $(document).height());
+    }
+});
+
+
+var newArray= [1,2,3,3,4];
+var seen={};
+// var unqueArray=[];
+// newArray.forEach(a=>{
+//     if(!seen[a]){
+//         seen[a]=true;
+//         unqueArray.push(a)
+//     }
+// })
+var unqueArray=[...new Set(newArray)];
+// console.log(seen);
+console.log(unqueArray);
