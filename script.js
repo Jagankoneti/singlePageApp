@@ -278,11 +278,11 @@ function add(){
 }
 $(window).scroll(function () {
 
-    if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
-        console.log("scroll top:"+ $(window).scrollTop());
-        console.log("window heigh:"+ $(window).height());
-        console.log("document height:"+ $(document).height());
-    }
+    // if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+    //     console.log("scroll top:"+ $(window).scrollTop());
+    //     console.log("window heigh:"+ $(window).height());
+    //     console.log("document height:"+ $(document).height());
+    // }
 });
 
 
@@ -298,3 +298,94 @@ var seen={};
 var unqueArray=[...new Set(newArray)];
 // console.log(seen);
 console.log(unqueArray);
+
+// async function getData(){
+//     const response= await fetch('https://url.com');
+//     if(response.status==200){
+//     const result= await response.json();
+//     console.log(result);
+//     }else{
+//         console.log('error');
+//     }
+// }
+
+// getData();
+
+// fetch(url)
+//     .then(res=>res.json())
+//     .then(data=>console.log(data))
+//     .catch(err=>console.log(err))
+
+
+// let page=1;
+// let loading= false;
+
+// function loadData(){
+//     if(loading)return;
+
+//     loading=true;
+//     fetch(`url?id=${page}`)
+//     .then(res=>res.json())
+//     .then(
+//         (data)=>{console.log(data)
+//         page++;
+//         loading=false;
+//     })
+//     .catch(err=>console.log(err));
+// }
+
+// window.addEventListener('scroll',()=>{
+//     if(window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-100){
+//         loadData();
+//     }
+// })
+// loadData();
+const form= document.createElement('form');
+document.body.append(form);
+
+const searchBox= document.createElement('input');
+form.append(searchBox);
+
+const btn= document.createElement('button');
+btn.type='submit'
+btn.textContent='submit';
+form.append(btn);
+
+const ul= document.createElement('ul');
+document.body.append(ul);
+
+const removeFun=function(el){
+    console.log(el.target);
+    el.target.remove();
+}
+
+form.onsubmit=function(e){
+    e.preventDefault();
+
+    const inputVal=searchBox.value;
+    // console.log(inputVal);
+    const li= document.createElement('li');
+    li.innerText=inputVal;
+    // li.addEventListener('click',removeFun);
+    li.onclick=removeFun;
+    ul.appendChild(li);
+}
+
+let page=1;
+let loading= false;
+
+function loadData(){
+    const response= fetch(`https://url?id=${page}`);
+    const result= response.json()//response.text();
+    console.log(result);
+}
+
+window.addEventListener('scroll',function(){
+    console.log('scrolling');
+    if(window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-100){
+        loadData();
+    }
+})
+
+// loadData();
+
