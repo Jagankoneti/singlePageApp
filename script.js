@@ -194,5 +194,198 @@ function doSomething(fn,d){
     }
 }
 const getSuggestion=doSomething(getData,1000);
-
+//hii
+//hello
 // “Debouncing is useful when only the final action matters, while throttling is useful when intermediate actions are also important but need to be rate-limited.”
+
+class person{
+    talk(){
+        return 'talking';
+    }
+}
+
+// const me= new person();
+// const you =new person();
+
+// console.log(me.talk());
+// console.log(you.talk());
+
+function orderPizza(){
+    setTimeout(()=>{
+        console.log('pizza is ready');
+        eatPizza()
+    },2000)
+}
+function eatPizza(){
+    console.log('eat the pizza');
+}
+orderPizza();
+
+let val =30;
+val=40;
+console.log(val);
+
+let values={
+    name:"jagan",
+    age:26
+}
+values.name="bharath";
+console.log(values);
+
+//var is a function scoped
+//let is block scoped
+
+for(i=0;i<5;i++){
+    // console.log(i);
+}
+
+var i=0;
+while(i<5){
+    i++;
+    // console.log(i);
+}
+
+let arrr=[1,2,3,4];
+// for(let a of arrr){
+//     console.log(a);
+// }
+// for(let a in arrr){
+//     console.log(arrr[a]);
+// }
+arrr.forEach((a)=>{
+// console.log(a);
+})
+
+const promise= new Promise((res,rej)=>{
+    
+    setTimeout(() => {
+        let a =false;
+        if(a){
+            return res('success');
+        }else{
+            return rej('falied');
+        }
+    }, 1000);
+    
+})
+promise.then((res)=>console.log(res))
+        .catch((err)=>console.log(err));
+
+add();
+function add(){
+    let a=1;
+    console.log(a);
+}
+$(window).scroll(function () {
+
+    // if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+    //     console.log("scroll top:"+ $(window).scrollTop());
+    //     console.log("window heigh:"+ $(window).height());
+    //     console.log("document height:"+ $(document).height());
+    // }
+});
+
+
+var newArray= [1,2,3,3,4];
+var seen={};
+// var unqueArray=[];
+// newArray.forEach(a=>{
+//     if(!seen[a]){
+//         seen[a]=true;
+//         unqueArray.push(a)
+//     }
+// })
+var unqueArray=[...new Set(newArray)];
+// console.log(seen);
+console.log(unqueArray);
+
+// async function getData(){
+//     const response= await fetch('https://url.com');
+//     if(response.status==200){
+//     const result= await response.json();
+//     console.log(result);
+//     }else{
+//         console.log('error');
+//     }
+// }
+
+// getData();
+
+// fetch(url)
+//     .then(res=>res.json())
+//     .then(data=>console.log(data))
+//     .catch(err=>console.log(err))
+
+
+// let page=1;
+// let loading= false;
+
+// function loadData(){
+//     if(loading)return;
+
+//     loading=true;
+//     fetch(`url?id=${page}`)
+//     .then(res=>res.json())
+//     .then(
+//         (data)=>{console.log(data)
+//         page++;
+//         loading=false;
+//     })
+//     .catch(err=>console.log(err));
+// }
+
+// window.addEventListener('scroll',()=>{
+//     if(window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-100){
+//         loadData();
+//     }
+// })
+// loadData();
+const form= document.createElement('form');
+document.body.append(form);
+
+const searchBox= document.createElement('input');
+form.append(searchBox);
+
+const btn= document.createElement('button');
+btn.type='submit'
+btn.textContent='submit';
+form.append(btn);
+
+const ul= document.createElement('ul');
+document.body.append(ul);
+
+const removeFun=function(el){
+    console.log(el.target);
+    el.target.remove();
+}
+
+form.onsubmit=function(e){
+    e.preventDefault();
+
+    const inputVal=searchBox.value;
+    // console.log(inputVal);
+    const li= document.createElement('li');
+    li.innerText=inputVal;
+    // li.addEventListener('click',removeFun);
+    li.onclick=removeFun;
+    ul.appendChild(li);
+}
+
+let page=1;
+let loading= false;
+
+function loadData(){
+    const response= fetch(`https://url?id=${page}`);
+    const result= response.json()//response.text();
+    console.log(result);
+}
+
+window.addEventListener('scroll',function(){
+    console.log('scrolling');
+    if(window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-100){
+        loadData();
+    }
+})
+
+// loadData();
+

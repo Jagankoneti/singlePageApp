@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>test</p>
+
+    <script>
+        const myPromise= new Promise((res,rej)=>{
+                let a=true;
+                if(a){
+                    console.log(res('success'));
+                }else{
+                    console.log(rej('failed'));
+                }
+        })
+        myPromise.then((res)=>res)
+                .catch((err)=>err);
+
+            function sum(a,b){
+                return a+b;
+            }
+            const sum= (a,b)=>a+b;
+            const arr=[1,2,3,3,4,4,5];
+            [1,2,3,[arr]]
+            // [1,2,3,[1,2,3,4...]]
+            [1,2,3,[...arr]]
+            // [1,2,3,1,2,3...]
+            arr.map(a=> a*2)
+
+            const objArr={
+                arrr:[1,2,3,4]
+            }
+            obj.arrr.map(a=>a*2);
+
+            fetch('https://api').
+            then(res=>JSON.stringify(res)).
+            then(res=>console.log(res)).catch(err=>err);
+
+            
+
+    </script>
+</body>
+</html>
